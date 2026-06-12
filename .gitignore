@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.venv/
+venv/
+
+# Environment / secrets — NEVER commit
+backend/.env
+vars.yml
+
+# Frontend build artefacts
+frontend/dist/
+frontend/node_modules/
+backend/static/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

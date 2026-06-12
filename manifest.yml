@@ -1,0 +1,30 @@
+---
+applications:
+  - name: nd-orbit-customised
+    buildpacks:
+      - python_buildpack
+    path: backend
+    command: uvicorn app.main:app --host 0.0.0.0 --port $PORT --workers 1
+    memory: 1G
+    disk_quota: 1G
+    instances: 1
+    health-check-type: http
+    health-check-http-endpoint: /health
+    timeout: 180
+    env:
+      # Non-sensitive — safe to commit
+      AICORE_AUTH_URL: ((aicore_auth_url))
+      AICORE_BASE_URL: ((aicore_base_url))
+      AICORE_RESOURCE_GROUP: default
+      LLM_DEPLOYMENT_ID: ((llm_deployment_id))
+      HANA_PORT: "443"
+      HANA_SCHEMA: AI_USE_CASES_HDI_DB_1
+      CPI_API_URL: https://api-eih-qa.next-decade.com/external/integrationhub/correlation/logs/v1
+      CPI_SOURCE: workday
+      CPI_DESTINATION: sap
+      # Secrets — supplied via vars.yml (never committed)
+      AICORE_CLIENT_ID: ((aicore_client_id))
+      AICORE_CLIENT_SECRET: ((aicore_client_secret))
+      HANA_HOST: ((hana_host))
+      HANA_USER: ((hana_user))
+      HANA_PASSWORD: ((hana_password))

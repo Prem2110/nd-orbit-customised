@@ -1,0 +1,14 @@
+# Copy this file to vars.yml, fill in the values, then deploy with:
+#   cf push --vars-file vars.yml
+#
+# NEVER commit vars.yml to git — it contains secrets.
+
+aicore_auth_url: https://gen-ai.authentication.us10.hana.ondemand.com
+aicore_base_url: https://api.ai.prod.us-east-1.aws.ml.hana.ondemand.com/v2
+aicore_client_id: REPLACE_WITH_CLIENT_ID
+aicore_client_secret: REPLACE_WITH_CLIENT_SECRET
+llm_deployment_id: REPLACE_WITH_DEPLOYMENT_ID
+
+hana_host: REPLACE_WITH_HANA_HOST
+hana_user: REPLACE_WITH_HANA_USER
+hana_password: REPLACE_WITH_HANA_PASSWORD
