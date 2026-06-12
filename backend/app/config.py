@@ -21,5 +21,14 @@ class Settings(BaseSettings):
     CPI_SOURCE: str = "workday"
     CPI_DESTINATION: str = "sap"
 
+    ALLOWED_ORIGINS: str = "*"  # comma-separated list, e.g. "https://frontend.cfapps.us10.hana.ondemand.com"
+
+    LLM_USAGE_MONITOR_APP_ID: str = "28"
+    LLM_USAGE_MONITOR_MODEL_NAME: str = "claude-sonnet-4-6"
+    LLM_USAGE_MONITOR_CALL_TYPE_L_INVOKE: str = "l_invoke"
+    LLM_USAGE_MONITOR_CALL_TYPE_A_INVOKE: str = "a_invoke"
+    LLM_USAGE_MONITOR_BASE_URL: str = ""
+    LLM_USAGE_MONITOR_API_KEY: str = ""
+
 
 settings = Settings()

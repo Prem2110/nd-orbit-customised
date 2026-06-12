@@ -4,6 +4,7 @@ import asyncio
 import httpx
 from app.config import settings
 from app.services.auth import token_manager
+from app.monitoring.llm_monitor import log_llm_invoke
 
 logger = logging.getLogger(__name__)
 
@@ -109,6 +110,7 @@ async def _call_claude(prompt: str) -> str:
         resp = await client.post(url, headers=headers, json=payload)
         resp.raise_for_status()
         data = resp.json()
+        log_llm_invoke(data)
         return data["content"][0]["text"]
 
 
