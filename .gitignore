@@ -11,8 +11,8 @@ venv/
 # Environment / secrets — NEVER commit
 backend/.env
 vars.yml
-backend/manifest.yml
 manifest.yml
+**/manifest.yml
 
 # Frontend build artefacts
 frontend/dist/
